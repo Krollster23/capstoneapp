@@ -7,37 +7,82 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Litle Lemon Restuant"
     />
+    <meta name="og:title" content=""/>
+    <meta name="og:description" content="Little Lemon is a family style meditteran restuant th"/>
+    <meta name="og:image" content=""/>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <link rel="stylesheet" href="App.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Little Lemon</title>
   </head>
   <body>
+        <div class="container">
+        <nav>
+          <div id="navbar">
+              <a href="#home"><img src="./images/logo.png" alt="Logo" style="width: 100px; height: 90px; float: left;"></a>
+            <div id="links">
+                <a href="#Home">Home</a>
+                <a href="#About">About</a>
+                <a href="#Menu">Menu</a>
+                <a href="#Reservation">Reservation</a>
+                <a href="#Order-online">Order Online</a>
+                <a href="#Login">Login</a>
+            </div>
+          </div>
+        </nav>
+          <main>
+            <h1>Little Lemon</h1>
+            <p>Minneapolis</p>
+            <p>We are a family owned Meditteran restuant.</p> <br>
+            <button><a href="#Book-a-table">Book A Table</a></button>
+          </main>
+          <div id="sidebar">
+            <h2>This Weeks Specials!</h2>
+            <button><a href="#Orderonline">Order Online</a></button>
+          </div>
+          <div id="content1">
+            <div class="card" style="width: 20rem;">
+              <img src="./images/greek.jpg" class="card-img-top" alt="Greek Salad">
+              <div class="card-body">
+                <h3 class="card-title">Greek Salad <caption>$12.99</caption></h3>
+                <p class="card-text">The famous Greek salad of crispy lettuce, pepper, olives adn our Chicago style feta </p>
+                <button><a href="#" class="btn btn-primary"><a href="#delivery">Order for Delivery</a></button>
+              </div>
+            </div>
+          </div>
+          <div id="content2">
+            <div class="card" style="width: 20rem;">
+              <img src="./images/brucetta.jpg" class="card-img-top" alt="Bruchetta">
+              <div class="card-body">
+                <h3 class="card-title">Bruchetta<caption>$12.99</caption></h3>
+                <p class="card-text">Our Bruchetta is made from grilled that has been smeared with garlic and seasoned with salt and olive oil.</p>
+                <button><a href="#" class="btn btn-primary"><a href="#delivery">Order for Delivery</a></button>
+              </div>
+          </div>
+        </div>
+          <div id="content3">
+            <div class="card" style="width: 20rem;">
+              <img src="./images/lemonbar.jpg" class="card-img-top" alt="Lemon Bar">
+              <div class="card-body">
+                <h3 class="card-title">Lemon Bar<caption>$12.99</caption></h3>
+                <p class="card-text">This is straight from grandmas recipe book, every last ingredient has been sources and is authentic as can be imagined</p>
+                <button><a href="#" class="btn btn-primary"><a href="#delivery">Order for Delivery</a></button>
+              </div>
+          </div>
+          </div>
+          <footer>
+            <img src="./images/logo.png" alt="logo" style="width: 100px; height: 90px; float: left;">
+            <p>&copy; Jonah Kroll, 2023</p>
+            <a href="#Home">Home</a>
+            <a href="#About">About</a>
+            <a href="#Menu">Menu</a>
+            <a href="#Reservation">Reservation</a>
+            <a href="#Order-online">Order Online</a>
+            <a href="#Login">Login</a>
+          </footer>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
