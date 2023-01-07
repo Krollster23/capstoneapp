@@ -12,7 +12,7 @@
   "sidebar main main main"
   "sidebar content1 content2 content3"
   "sidebar footer footer footer";
-  grid-gap: 0.4rem;
+  grid-gap: 1rem;
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 800;
   text-transform: uppercase;
@@ -21,49 +21,71 @@
   color: #000;
 }
 
+.card-img-top{
+  max-width: 400px;
+  max-height: 150px;
+}
+
+.navbar-img {
+  max-width: 50px;
+  max-height: 40px;
+}
 nav {
   background-color: aliceblue;
   grid-area: nav;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
-  float: center;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bolder;
 }
 
 nav a {
   text-decoration: none;
   color: #000;
-  font-size: 1rem;
-  padding: 2px 2px;
+  line-height: 1rem;
+  padding: 1.2em 2.7em;
 }
 nav a:hover {
   color: #F4CE14;
 }
 
-main {
+.main {
   background-color: #495E57;
   grid-area: main;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
   color: #ffff;
 }
-main h1 {
+.main h1 {
   color: #F4CE14;
   text-emphasis: bold;
   font-size: 30px;
+  justify-content: center;
 }
-main button {
+.main button {
   border-radius: 30px;
   color: #000;
   background-color: #F4CE14;
   font-size: 15px;
   padding: 8px;
+  justify-content: center;
 }
-main button a {
+.main button a {
   color: #000;
   text-decoration: none;
+  justify-content: center;
+}
+
+.hero-image {
+  float: right;
+  max-width: 350px;
+  max-height: 350px;
 }
 
 #sidebar {
+  background-color: #000;
+  color: #ffff;
   grid-area: sidebar;
   border-radius: var(--main-radius);
   padding-top: var(--main-padding);
@@ -91,11 +113,30 @@ main button a {
   color: #000;
   background-color: #F4CE14;
   font-size: 12px;
-  padding: 5px;
+  padding-bottom: 5px;
 }
 #content1 button a {
   color: #000;
   text-decoration: none;
+}
+
+.card {
+  width: auto;
+  padding: 8px;
+}
+.card-body {
+  max-width: auto;
+  max-height: fit-content;
+}
+.card-title {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.card-text {
+  font-size: 15px;
+  text-align: center;
+  font-weight: none;
 }
 
 #content2 {

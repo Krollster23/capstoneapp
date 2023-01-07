@@ -1,10 +1,16 @@
-<footer>
-    <h1>Copy&; Jonah Kroll, 2023</h1>
-    <p><a href="mailto:hege@example.com">hege@example.com</a></p>
-    <ul>
-    <li><a href="#Home">Home</a></li>
-    <li><a href="#About">About</a></li>
-    <li><a href="#Menu">Menu</a></li>
-    <li><a href="#Orderonline">Order Online</a></li>
-</ul>
-</footer>
+import { Link } from 'react-router-dom';
+const Footer = () => {
+    return (
+        <footer className="footer">
+            <p>&copy; Jonah Kroll, 2023</p>
+            <Link to="#Home">Home</Link>
+            <Link to="#About">About</Link>
+            <Link to="#Menu">Menu</Link>
+            <Link to="#Reservation">Reservation</Link>
+            <Link to="#Order-online">Order Online</Link>
+            <Link to="#Login">Login</Link>
+        </footer>
+    );
+};
+
+export default Footer
