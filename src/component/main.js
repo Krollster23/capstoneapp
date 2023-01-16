@@ -1,83 +1,70 @@
-import React, { Component } from 'react';
-import Home from './HomeComponent';
-import Menu from './MenuComponent';
-import Contact from './ContactComponent';
-import About from './AboutComponent';
-import DishDetail from './DishdetailComponent';
-import Header from './HeaderComponent';
-import Footer from './FooterComponent';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { postComment, postFeedback, fetchDishes, fetchComments, fetchPromos, fetchLeaders } from '../redux/ActionCreators';
-import { actions } from 'react-redux-form';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./homepage.css";
+import Button from "@mui/material/Button";
 
-const mapStateToProps = state => {
-   return {
-      dishes: state.dishes,
-      comments: state.comments,
-      promotions: state.promotions,
-      leaders: state.leaders
-   }       
+const iconPath = process.env.PUBLIC_URL;
+
+function Homepage() {
+  return (
+    <main className="main-container">
+      <div className="main-hero-section">
+        <div className="main-hero-text">
+          <h1>Little Lemon</h1>
+          <p>Chicago</p>
+          <h2>
+            Welcome to Little Lemon, a family owned mediterrean restuarant in the heart of downtown. Our menu features a variety of fresh,
+            Traditional dishes made with locally sourced ingredients and a modern twist.
+          </h2>
+          <Link to="/reservation">
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "#F4CE14",
+                color: "black",
+                fontWeight: 700,
+                textDecoration: "none",
+                padding: "12px",
+              }}
+              className="main-hero-cta-button"
+            >
+              Reserve a table
+            </Button>
+          </Link>
+        </div>
+        <div className="main-hero-img">
+          <img
+            src={`${iconPath}/restauranfood.jpg`}
+            height="420"
+            width="100%"
+            alt="logo"
+          ></img>
+        </div>
+      </div>
+
+      <div className="main-about-section">
+        <div className="main-about-img">
+          <img
+            src={`${iconPath}/Mario and Adrian A.jpg`}
+            height="420"
+            width="100%"
+            alt="about"
+          ></img>
+        </div>
+        <div className="main-about-text">
+          <h1>About</h1>
+          <p>Mario and Adrian</p>
+          <h2>
+            At Little Lemon, we believe that food is not just sustenance, but an
+            experience. That's why we've created a warm and inviting atmosphere
+            that's perfect for a romantic dinner, a casual lunch, or a special
+            occasion. Our attentive staff will make sure you have a memorable
+            meal, whether you're dining alone or with a group.
+          </h2>
+        </div>
+      </div>
+    </main>
+  );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-   postComment: (dishId, rating, author, comment) => dispatch(postComment(dishId, rating, author, comment)),
-   postFeedback: (feedback) => dispatch(postFeedback(feedback)),
-   fetchDishes: () => {dispatch(fetchDishes())},
-   resetFeedbackForm: () => {dispatch(actions.reset('feedback'))},
-   fetchComments: () => {dispatch(fetchComments())},
-   fetchPromos: () => {dispatch(fetchPromos())},
-   fetchLeaders: () => {dispatch(fetchLeaders())}
-});
-    
-class Main extends Component {
-   constructor(props) {
-      super(props);
-   }
-   
-   componentDidMount() {
-      this.props.fetchDishes();
-      this.props.fetchComments();
-      this.props.fetchPromos();
-      this.props.fetchLeaders();
-   }
-   
-   render() {
-      const HomePage = () => {
-         return (
-            <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]} dishesLoading={this.props.dishes.isLoading} dishesErrMess={this.props.dishes.errMess} 
-            promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]} promosLoading={this.props.promotions.isLoading} promosErrMess={this.props.promotions.errMess}
-            leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]} leadersLoading={this.props.leaders.isLoading} leadersErrMess={this.props.leaders.errMess} />
-         );
-      }
-      
-      const DishWithId = ({match}) => {
-         return (
-            <DishDetail dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]} isLoading={this.props.dishes.isLoading} errMess={this.props.dishes.errMess} 
-            comments={this.props.comments.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))} commentsErrMess={this.props.comments.errMess} postComment={this.props.postComment} />
-         );
-      }
-   
-      return (
-         <div>
-            <Header />
-            <TransitionGroup>
-               <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-                  <Switch>
-                     <Route path="/home" component={HomePage} />
-                     <Route exact path="/aboutus" component={() => <About leaders={this.props.leaders} />} />
-                     <Route exact path="/menu" component={() => <Menu dishes={this.props.dishes} />} />
-                     <Route path="/menu/:dishId" component={DishWithId} />
-                     <Route exact path="/contactus" component={() => <Contact postFeedback={this.props.postFeedback} resetFeedbackForm={this.props.resetFeedbackForm} />} />
-                     <Redirect to="/home" />
-                  </Switch>     
-               </CSSTransition> 
-            </TransitionGroup>          
-            <Footer />
-         </div>
-      );
-   }
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default Main;
